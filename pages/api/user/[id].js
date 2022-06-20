@@ -11,6 +11,7 @@ export default async (req, res) => {
         method
     } = req;
 
+
     switch (method) {
         case 'GET':
             try {

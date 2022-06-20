@@ -2,25 +2,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 
-const dash = () => {
-  const [user, setUser] = useState({});
-  const username = useParams().username;
+const Dash = () => {
+ 
+  const deleteNote = async () => {
+    const userId = router.query.id;
+    try {
+        const deleted = await fetch(`http://localhost:3000/api/uses/${userId}`, {
+            method: "Delete"
+        });
 
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${username}`);
-      setUser(res.data);
-    };
-    fetchUser();
-  }, [username]);
+        router.push("/");
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
   return (
     <div>
-      <h1>dash</h1>
+<h1>Hello</h1>
     </div>
   )
 }
 
-export default dash
+export default Dash
+

@@ -21,7 +21,9 @@ export default function Home() {
       };
       try {
         await axios.post("/api/register/auth", user);
-        router.push("/dash");
+          router.push('/dash')
+          console.log(user)
+
       } catch (err) {
         console.log(err);
       }
@@ -69,3 +71,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+
